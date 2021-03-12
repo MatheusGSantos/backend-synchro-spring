@@ -28,8 +28,8 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping
-	public ResponseEntity<List<UserDTO>> list(@RequestParam(required = false) String id) {
-		return userService.getUsers(id);
+	public ResponseEntity<List<UserDTO>> list(@RequestParam(required = false) String email) {
+		return userService.getUsers(email);
 	}
 
 	@PostMapping

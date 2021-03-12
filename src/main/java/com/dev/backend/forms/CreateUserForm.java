@@ -19,7 +19,7 @@ public class CreateUserForm extends BaseUserForm {
         newUser.setName(this.getName());
         newUser.setEmail(this.getEmail());
         newUser.setPassword(this.getPassword());
-
+        newUser.setProfile("User");
         return newUser;
     }
 

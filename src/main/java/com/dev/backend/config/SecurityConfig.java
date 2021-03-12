@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
         .antMatchers(HttpMethod.GET, "/users").permitAll()
         .antMatchers(HttpMethod.POST, "/users").permitAll()
-        .antMatchers(HttpMethod.GET, "/auth").permitAll()
+        .antMatchers(HttpMethod.POST, "/auth").permitAll()
         .anyRequest().authenticated()
         .and().csrf().disable()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

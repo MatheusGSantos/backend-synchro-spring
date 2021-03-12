@@ -33,16 +33,17 @@ public class UserService {
         }
         
         newUser.setPassword(new BCryptPasswordEncoder().encode(newUser.getPassword()));
+        User user = userRepository.save( newUser.toUser() );
 
         return ResponseEntity.ok().
-                body( new ResponseDTO<UserDTO>( new UserDTO( userRepository.save( newUser.toUser() ) ) ) );
+                body( new ResponseDTO<UserDTO>( new UserDTO( user ) ) );
     }
 
-    public ResponseEntity<List<UserDTO>> getUsers(String id) {
+    public ResponseEntity<List<UserDTO>> getUsers(String email) {
         List<UserDTO> foundUsers = new ArrayList<>();
 
-		if (id != null) {
-            Optional<User> foundUser = userRepository.findById(id);
+		if (email != null) {
+            Optional<User> foundUser = userRepository.findByEmail(email);
             
             if (foundUser.isPresent()) {
                 foundUsers.add(new UserDTO(foundUser.get()));
