@@ -1,1 +1,1 @@
-# backend-alura-spring
+# backend-synchro-spring
