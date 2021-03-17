@@ -54,7 +54,9 @@ public class UserService {
 		}
 
 		userRepository.findAll().forEach((foundUser) -> {
-            foundUsers.add(new UserDTO(foundUser));
+            if(foundUser.getProfile().equals("User")) {
+                foundUsers.add(new UserDTO(foundUser));
+            }
         });
 
 		return ResponseEntity.ok().body(foundUsers);

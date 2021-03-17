@@ -4,7 +4,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 
 public class LoginForm {
     
-    private String email;
+  private String email;
 	private String password;
 	
 	public String getEmail() {
